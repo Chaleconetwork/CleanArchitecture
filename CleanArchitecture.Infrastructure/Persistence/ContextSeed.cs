@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Domain;
+﻿using CleanArchitecture.Domain.Entities;
 using Microsoft.Extensions.Logging;
 
 namespace CleanArchitecture.Infrastructure.Persistence

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CleanArchitecture.Application.Features.Streamers.Commands.CreateStreamer;
 using CleanArchitecture.Application.Features.Videos.Queries.GetVideosList;
-using CleanArchitecture.Domain;
+using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.Mappings
 {

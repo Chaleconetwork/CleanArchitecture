@@ -1,11 +1,11 @@
 ﻿using CleanArchitecture.Domain.Common;
 
-namespace CleanArchitecture.Domain
+namespace CleanArchitecture.Domain.Entities
 {
-    public class Actor: BaseDomainModel
+    public class Actor : BaseDomainModel
     {
-        public Actor() 
-        { 
+        public Actor()
+        {
             Videos = new HashSet<Video>();
         }
 

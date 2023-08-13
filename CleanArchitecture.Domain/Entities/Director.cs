@@ -1,8 +1,8 @@
 ﻿using CleanArchitecture.Domain.Common;
 
-namespace CleanArchitecture.Domain
+namespace CleanArchitecture.Domain.Entities
 {
-    public class Director: BaseDomainModel
+    public class Director : BaseDomainModel
     {
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
