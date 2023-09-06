@@ -1,7 +1,10 @@
 ﻿using CleanArchitecture.Application.Features.Streamers.Commands.CreateStreamer;
 using CleanArchitecture.Application.Features.Streamers.Commands.DeleteStreamer;
 using CleanArchitecture.Application.Features.Streamers.Commands.UpdateStreamer;
+using CleanArchitecture.Application.Features.Streamers.Queries.GetStreamersList;
+using CleanArchitecture.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -17,7 +20,19 @@ namespace CleanArchitecture.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet(Name = "GetStreamers")]
+        [Authorize]
+        [ProducesResponseType(typeof(IReadOnlyList<Streamer>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IReadOnlyList<Streamer>>> GetStreamers()
+        {
+            var query = new GetStreamersListQuery();
+            var streamers = await _mediator.Send(query);
+
+            return Ok(streamers);
+        }
+
         [HttpPost(Name = "CreateStreamer")]
+        [Authorize(Roles = "Administrador")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<int>> CreateStreamer([FromBody]CreateStreamerCommand  command)
         {

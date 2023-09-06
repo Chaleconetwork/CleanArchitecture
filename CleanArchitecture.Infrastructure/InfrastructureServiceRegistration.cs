@@ -17,7 +17,9 @@ namespace CleanArchitecture.Infrastructure
             string? con = configuration.GetConnectionString("ConnectionString");
             services.AddDbContext<Context>(options => options.UseMySql(con, ServerVersion.AutoDetect(con)));
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
+
             services.AddScoped<IVideoRepository, VideoRepository>();
             services.AddScoped<IStreamerRepository, StreamerRepository>();
 

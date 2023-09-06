@@ -67,5 +67,8 @@ namespace CleanArchitecture.Infrastructure.Persistence
 
         public DbSet<Streamer>? Streamers { get; set; }
         public DbSet<Video>? Videos { get; set; }
+        public DbSet<Actor>? Actores { get; set; }
+        public DbSet<Director>? Directores { get; set; }
+        public DbSet<VideoActor>? VideoActores { get; set; }
     }
 }
